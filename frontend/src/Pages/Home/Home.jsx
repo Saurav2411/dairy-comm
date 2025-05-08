@@ -4,60 +4,68 @@ import Categories from "../../Components/Categories/Categories";
 import Client from "../../Components/Client/Client";
 import Product from "../../Components/Product/Product";
 import Recent from "../../Components/Recent/Recent";
-import Delivery from './../../Components/Delivery/Delivery';
-import Features from './../../Components/Features/Features';
+import Delivery from "../../Components/Delivery/Delivery";
+import Features from "../../Components/Features/Features";
 
 const Home = () => {
     return (
-        <div>
+        <div className="w-full  bg-[#f9fafb]"> {/* Light background for overall page */}
 
+            {/* Banner */}
+            <section className="w-full bg-[#f0f2f3] py-16 sm:py-20 md:py-24 lg:py-32 rounded-b-3xl">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Banner />
+                </div>
+            </section>
 
+            {/* Delivery */}
+            <section className="w-full py-12 sm:py-14 bg-white shadow-lg rounded-lg mb-10">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Delivery />
+                </div>
+            </section>
 
-            {/* banner component  */}
-            <div className="w-full min-h-[850px] bg-[#f0f2f3] flex items-center justify-center rounded-b-3xl">
+            {/* Brand */}
+            <section className="w-full py-12 sm:py-14 bg-[#f9fafb]">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Brand />
+                </div>
+            </section>
 
-                <Banner></Banner>
-            </div>
+            {/* Features */}
+            <section className="w-full py-16 sm:py-20 bg-white shadow-lg rounded-lg mb-10">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Features />
+                </div>
+            </section>
 
-            {/* delivery component */}
-            <div className="delivery_component w-full min-h-[#150px]">
-                <Delivery></Delivery>
-            </div>
+            {/* Categories */}
+            <section className="w-full py-16 sm:py-20 bg-[#f9fafb]">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Categories />
+                </div>
+            </section>
 
+            {/* Products */}
+            <section className="w-full py-16 sm:py-20 bg-white shadow-lg rounded-lg mb-10">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Product />
+                </div>
+            </section>
 
-            {/* brand component  */}
-            <div className="brand flex items-center h-[171px] justify-center w-full mt-8 mb-8">
-                <Brand></Brand>
-            </div>
+            {/* Client Testimonials */}
+            <section className="w-full bg-[#f0f2f3] py-16 sm:py-20">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Client />
+                </div>
+            </section>
 
-            {/* features component */}
-            <div className="w-full flex items-center justify-center mb-[80px]">
-                <Features></Features>
-            </div>
-
-            {/* features component */}
-            <div className="w-full flex items-center justify-center mb-[80px]">
-                <Categories></Categories>
-            </div>
-
-            {/* product component  */}
-            <div className="w-full flex items-center justify-center pb-[80px]">
-                <Product></Product>
-            </div>
-
-
-            {/* client say component  */}
-            <div className="w-full flex items-center justify-center bg-[#f0f2f3] min-h-[589px] pb-[80px] pt-[80px]">
-
-                <Client></Client>
-
-            </div>
-
-
-            {/* Recent component  */}
-            <div className="w-full flex items-center justify-center pb-[80px] pt-[80px]">
-                <Recent></Recent>
-            </div>
+            {/* Recently Added */}
+            <section className="w-full py-16 sm:py-20 bg-white shadow-lg rounded-lg mb-16">
+                <div className="max-w-screen-xl mx-auto px-6 md:px-8">
+                    <Recent />
+                </div>
+            </section>
 
         </div>
     );

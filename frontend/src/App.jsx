@@ -10,7 +10,7 @@ import Footer from "../src/Components/Footer/Footer";
 
 
 
-const MainLayout = () => {
+const App = () => {
     return (
 
         <BrowserRouter>
@@ -39,4 +39,4 @@ const MainLayout = () => {
     );
 };
 
-export default MainLayout;
+export default App;

@@ -3,113 +3,115 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ShoppingCart } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Features = () => {
+  const products = [
+    {
+      title: "Fresh Cow Milk",
+      status: "New",
+      price: "₹60/L",
+      currentPrice: "₹55/L",
+      image: "/src/assets/features/milk.jpeg",
+    },
+    {
+      title: "Pure Desi Ghee",
+      status: "Sale",
+      price: "₹600/kg",
+      currentPrice: "₹520/kg",
+      image: "/src/assets/features/ghee.webp",
+    },
+    {
+      title: "Paneer Block",
+      price: "₹320/kg",
+      image: "/src/assets/features/paneer.jpeg",
+    },
+    {
+      title: "Fresh Curd",
+      status: "New",
+      price: "₹40/500g",
+      image: "/src/assets/features/curd.jpeg",
+    },
+    {
+      title: "Butter",
+      price: "₹250/500g",
+      image: "/src/assets/features/butter.jpeg",
+    },
+  ];
 
-    const features = [
-        {
-            title: 'library stool',
-            status: 'New',
-            price: '$250',
-            image: '/src/assets/features/product_1.png',
-            currentPrice: '$200',
-        },
-        {
-            title: 'library stool Chair',
-            status: 'Sales',
-            price: '$250',
-            image: '/src/assets/features/product_2.png',
-        },
-        {
-            title: 'library stool Chair',
-            price: '$250',
-            image: '/src/assets/features/product_3.png',
-        },
-        {
-            title: 'library stool Chair',
-            status: 'New',
-            price: '$250',
-            image: '/src/assets/features/product_4.png',
-            currentPrice: '$200',
-        },
-        {
-            title: 'library stool',
-            status: 'New',
-            price: '$250',
-            image: '/src/assets/features/product_1.png',
-            currentPrice: '$200',
-        },
-        {
-            title: 'library stool Chair',
-            status: 'Sales',
-            price: '$250',
-            image: '/src/assets/features/product_2.png',
-        },
-        {
-            title: 'library stool Chair',
-            price: '$250',
-            image: '/src/assets/features/product_3.png',
-        },
-        {
-            title: 'library stool Chair',
-            status: 'New',
-            price: '$250',
-            image: '/src/assets/features/product_4.png',
-            currentPrice: '$200',
-        },
-    ];
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3
-    };
+  return (
+    <div className="lg:container mx-auto py-10">
+      <SectionTitle title="Dairy Specials from Gokul" mb="mb-11" />
 
-    return (
-        <div>
-            <div className="lg:container mx-auto ">
-                <SectionTitle title="Featured Products" mb='mb-11'></SectionTitle>
+      <Slider {...settings}>
+        {products.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="p-4"
+          >
+            <div className="bg-white shadow-xl rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              {/* Image Section */}
+              <div className="relative h-56 bg-gray-50">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-t-2xl"
+                />
+                {item.status && (
+                  <span className="absolute top-3 left-3 text-xs px-3 py-1 bg-[#029fae] text-white rounded-full uppercase font-medium">
+                    {item.status}
+                  </span>
+                )}
+              </div>
 
-                <div className="slider-container features_slider w-full h-full">
-                    <Slider {...settings}>
-                        {
-                            features?.map((feature, index) => (
-                                <div key={index} className="p-4">
-                                    <div className="feature_image mb-4 relative">
-                                        <img className="w-full h-full object-cover" src={feature?.image} alt={feature?.title} />
-                                        {
-                                            feature?.status && (
-                                                <div className="absolute top-4 left-4 bg-[#007580] text-white px-2 py-1 rounded-lg">
-                                                    <button className="text-sm font-inter font-normal">{feature?.status}</button>
-                                                </div>
-                                            )
-                                        }
-                                    </div>
-                                    <div className="feature_content">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-base text-[#007580] capitalize font-inter font-normal mb-4">{feature?.title}</h4>
-                                            <span className="bg-[#007580] h-[44px] w-[44px] rounded-lg flex items-center justify-center"><ShoppingCart size='1.5rem' color="#fff"  /></span>
-                                        </div>
-                                        <p className="text-xl flex items-center gap-2 text-[#272343] font-semibold font-inter ">
-                                            {feature?.price} 
-                                            {
-                                                feature?.currentPrice && (
-                                                    <span className="text-sm text-[#9a9caa] font-inter font-normal">{feature?.currentPrice}</span>
-                                                )
-                                            }
-                                        </p>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </Slider>
+              {/* Card Content */}
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-[#007580] font-semibold text-lg md:text-xl">
+                    {item.title}
+                  </h3>
+                  <button className="h-10 w-10 bg-[#029fae] rounded-full flex items-center justify-center hover:bg-[#027f90] transition-colors">
+                    <ShoppingCart color="white" size="1.5rem" />
+                  </button>
                 </div>
 
+                <div className="text-[#272343] text-lg font-bold">
+                  {item.currentPrice || item.price}
+                  {item.currentPrice && (
+                    <span className="text-sm text-gray-400 line-through ml-2">
+                      {item.price}
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
-        </div>
-    );
+          </motion.div>
+        ))}
+      </Slider>
+    </div>
+  );
 };
 
 export default Features;

@@ -1,21 +1,34 @@
-/* tailwind css  */
+
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* google font inter  */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-@theme {
-    --font-inter: "Inter", sans-serif;
+/* Global Styles */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.5;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e6dede; 
+    color: #333;
+}
+
+/* Banner Section */
 .banner_slide_item {
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    gap: 7.5rem;
+    gap: 2rem; 
+    padding: 0 2rem;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out; 
 }
-
 
 .banner_image {
     position: relative;
@@ -31,89 +44,119 @@
     width: 100%;
     min-height: 747px;
     height: 100%;
-    background-color: #e1e3e5;
+    background-color: rgba(255, 255, 255, 0.7);  
     border-radius: 100%;
     z-index: -1;
+    animation: scaleIn 2s ease-in-out; 
 }
 
-.slider_container>.slick-slider>.slick-prev,
-.slider_container>.slick-slider>.slick-next {
-    z-index: 5 !important;
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slider Arrows */
+.slick-prev, .slick-next {
+    font-size: 30px; /* Reduced size for arrows */
+    color: #007580 !important;
+    opacity: 0.8;
+    z-index: 5;
+    position: absolute; /* Correct positioning */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for arrows */
 }
 
 .slick-prev {
-    left: -95px !important;
+    left: 20px; 
 }
 
 .slick-next {
-    right: -95px !important;
+    right: 20px; 
 }
 
-.slider_container>.slick-slider>.slick-prev:before,
-.slider_container>.slick-slider>.slick-next:before {
-    font-family: 'slick';
-    font-size: 52px !important;
-    line-height: 1;
-    opacity: .75;
-    color: #007580 !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
+.slick-prev:hover, .slick-next:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1); 
 }
 
-.slider_container>.slick-slider>.slick-dots {
+.slick-prev:before, .slick-next:before {
+    content: '←'; 
+    font-size: inherit;
+}
+
+/* Slider Dots */
+.slider_container .slick-dots {
     position: absolute;
-    bottom: 100px !important;
+    bottom: 20px; 
     display: block;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    height: 100%;
     text-align: center;
 }
 
-.slider_container>.slick-slider>.slick-dots li button:before {
-    font-family: 'slick';
-    font-size: 22px !important;
-    line-height: 20px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    content: '•';
-    text-align: center;
-    opacity: .25;
-    color: black;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.slider_container .slick-dots li button:before {
+    font-size: 20px !important;
+    color: #bbb;
+    transition: color 0.3s ease;
 }
 
-.slider_container>.slick-slider>.slick-dots>li.slick-active button:before {
+.slider_container .slick-dots li.slick-active button:before {
     color: #007580 !important;
 }
 
-
+/* Delivery Section */
 .delivery_component {
     margin-top: -4rem;
     position: relative;
     z-index: 5;
+    animation: fadeInUp 1s ease-out; /* Animated entry from below */
 }
 
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
-
-
-.features_slider>.slick-slider>.slick-prev:before,
-.features_slider>.slick-slider>.slick-next:before {
+/* Features Section */
+.features_slider .slick-prev:before,
+.features_slider .slick-next:before {
     font-size: 39px !important;
     color: #007580;
+    transition: color 0.3s ease;
 }
 
+.features_slider .slick-prev:hover:before,
+.features_slider .slick-next:hover:before {
+    color: #029fae;
+}
 
-
+/* Client Section */
 .client_say_description {
     position: relative;
 }
+
 .client_say_description::before {
     position: absolute;
     content: '';
@@ -122,5 +165,45 @@
     width: 3px;
     height: 100%;
     background-color: #007580;
+}
 
+/* Buttons */
+button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background-color: #029fae;
+}
+
+button:active {
+    transform: translateY(1px);
+    background-color: #027f90;
+}
+
+/* Custom Animation for Dairy Products and Interactive Sections */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.product_card {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.product_card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Clean Up */
+.slick-slide {
+    padding: 0 1rem; /* Adjust for better spacing between slides */
 }

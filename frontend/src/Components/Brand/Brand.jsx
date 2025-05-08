@@ -4,11 +4,11 @@ const Brand = () => {
     const brands = [
         {
             id: 1,
-            image: "/src/assets/brands/brand_1.png"
+            image: "/src/assets/brands/brand_1.jpeg"
         },
         {
             id: 2,
-            image: "/src/assets/brands/brand_2.png"
+            image: "/src/assets/brands/brand_2.jpeg"
         },
         {
             id: 3,
@@ -20,15 +20,15 @@ const Brand = () => {
         },
         {
             id: 5,
-            image: "/src/assets/brands/brand_5.png"
+            image: "/src/assets/brands/brand_5.jpeg"
         },
         {
             id: 6,
-            image: "/src/assets/brands/brand_6.png"
+            image: "/src/assets/brands/brand_6.jpeg"
         }, 
         {
             id: 7,
-            image: "/src/assets/brands/brand_7.png"
+            image: "/src/assets/brands/brand_7.jpeg"
         },
  
     ]
