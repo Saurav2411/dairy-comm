@@ -7,8 +7,9 @@ import Register from "../src/Pages/Auth/Register/Register";
 import Error from "../src/Pages/Error/Error";
 import AuthCheck from "../src/AuthCheck/AuthCheck";
 import Footer from "../src/Components/Footer/Footer";
-
-
+import About from "../src/Pages/About/About";
+import Blog from "./Pages/Blog/Blog";
+import Contact from "../src/Pages/Contact/Contact";
 
 const App = () => {
     return (
@@ -22,6 +23,12 @@ const App = () => {
                         <Home/>
                     </AuthCheck>
                 } />
+               < Route path="/about" element={<About />} />
+
+               <Route path="/blog" element={<Blog />} />
+
+               <Route path="/contact" element={<Contact />} />
+
                 <Route path="auth" element={<Auth/>}>
                     <Route path="login" element={<Login/>} />
                     <Route path="register" element={<Register/>} />
